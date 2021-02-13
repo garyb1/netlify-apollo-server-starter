@@ -1,23 +1,12 @@
-// src/lambda/graphql.js
-const { ApolloServer, gql } = require("apollo-server-lambda");
+import { ApolloServer } from 'apollo-server-lambda';
+import { resolvers } from '../resolvers.js';
+import { typeDefs } from '../schema.js';
 
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
-
-const resolvers = {
-  Query: {
-    hello: (parent, args, context) => {
-      return "Hello, world!";
-    }
-  }
-};
-
+// The ApolloServer constructor requires two parameters: your schema
+// definition and your set of resolvers.
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
 });
 
 exports.handler = server.createHandler();

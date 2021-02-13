@@ -6,9 +6,9 @@
     "graphql": "^15.5.0"
   },
   "scripts": {
+    "start": "NODE_ENV=development npm run start:lambda",
     "start:lambda": "netlify-lambda serve src/lambda",
-    "build": "npm run build:lambda",
-    "build:lambda": "netlify-lambda build src/lambda"
+    "build:lambda": "netlify-lambda build  src/lambda"
   },
   "devDependencies": {
     "netlify-lambda": "^1.4.5"
